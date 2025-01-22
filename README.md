@@ -23,3 +23,8 @@ This project is ideal for teams looking to streamline their testing processes an
 1. Clone the repository:
    ```bash
   git@github.com:vpatil04/CypressAutomationE2E.git
+
+## Screenshots
+Below is an example of a test execution report:
+
+![Test Report](cypress/screenshots/cucumber_pass_tc1.PNG)
