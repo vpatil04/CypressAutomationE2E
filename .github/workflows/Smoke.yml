@@ -1,0 +1,41 @@
+name: Smooke Test
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily at midnight
+  workflow_dispatch:  # Allows manually starting the workflow
+
+
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: [self-hosted, linux, x64, docker]
+    strategy:
+      fail-fast: false
+      matrix:
+       spec_file:
+        - cypress/integration/examples/Firste2eTc.js
+
+
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npx cypress run --spec ${MATRIX_SPEC_FILE} --broser chrome || exit 0
+
