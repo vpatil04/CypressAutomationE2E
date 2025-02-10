@@ -1,9 +1,9 @@
 name: Smooke Test
 
 on:
-  schedule:
-    - cron: '0 0 * * *'  # Runs daily at midnight
-  workflow_dispatch:  # Allows manually starting the workflow
+#  schedule:
+#    - cron: '0 0 * * *'  # Runs daily at midnight
+ # workflow_dispatch:  # Allows manually starting the workflow
 
 
   push:
